@@ -154,6 +154,14 @@ To run tests:
 npm test
 ```
 
+## Information for Workshop Leaders
+
+1. This repository is a template for the workshop. Participants will fork this repository to start the project.
+2. The `temp-today` repository was created from this template and contains the final version of the app.
+
+     - Inside of the `temp-today` repository, you can add this repository as a remote (i.e. `git remote add template git@github.com:andrekovac/temp-today-starter.git`) to fetch updates.
+     - After any updates re-run the `npm run generate-tags` script to update tags (which are used for diffs in a separate workshop repository).
+
 ---
 
 ## License
