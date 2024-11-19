@@ -8,16 +8,14 @@ console.log("=== Part 1: Let vs. Const ===");
 
 // Using let
 let mutableNumber = 5;
-// 🚀 **To Do**: Reassign 'mutableNumber' to a new value
-// Example: mutableNumber = 10;
+mutableNumber = 10; // Works because 'let' allows reassignment
+console.log(`mutableNumber: ${mutableNumber}`); // Output: 10
 
 // Using const
 const immutableNumber = 15;
-// 🚀 **To Do**: Try reassigning 'immutableNumber' and observe what happens
-// Example: immutableNumber = 20;
+// immutableNumber = 20; // Uncommenting this will throw an error because 'const' variables cannot be reassigned
 
-console.log(`mutableNumber: ${mutableNumber}`); // Expected: Updated value
-console.log(`immutableNumber: ${immutableNumber}`); // Expected: Original value
+console.log(`immutableNumber: ${immutableNumber}`); // Output: 15
 
 // ========================================
 // Part 2: Arrow Functions
@@ -29,10 +27,12 @@ console.log("\n=== Part 2: Arrow Functions ===");
 function multiply(a: number, b: number): number {
   return a * b;
 }
-// 🚀 **To Do**: Convert the above function to an arrow function named 'multiplyArrow'
 
-console.log(`multiply(2, 3): ${multiply(2, 3)}`); // Expected: 6
-// 🚀 **To Do**: Test 'multiplyArrow' here
+// Arrow function
+const multiplyArrow = (a: number, b: number): number => a * b;
+
+console.log(`multiply(2, 3): ${multiply(2, 3)}`); // Output: 6
+console.log(`multiplyArrow(2, 3): ${multiplyArrow(2, 3)}`); // Output: 6
 
 // ========================================
 // Part 3: Template Literals
@@ -42,9 +42,8 @@ console.log("\n=== Part 3: Template Literals ===");
 
 const firstName = "Jane";
 const lastName = "Doe";
-// 🚀 **To Do**: Use a template literal to combine 'firstName' and 'lastName' into 'fullName'
-
-console.log(`Full Name: `); // Expected: Full name displayed here
+const fullName = `${firstName} ${lastName}`;
+console.log(`Full Name: ${fullName}`); // Output: Jane Doe
 
 // ========================================
 // Part 4: Destructuring and Spread/Rest Operators
@@ -54,24 +53,20 @@ console.log("\n=== Part 4: Destructuring and Spread/Rest Operators ===");
 
 // Object destructuring
 const user = { username: "jdoe", email: "jdoe@example.com", age: 28 };
-// 🚀 **To Do**: Extract 'username' and 'email' from 'user' using destructuring
-
-console.log(`Username: `); // Expected: Username value
-console.log(`Email: `); // Expected: Email value
+const { username, email } = user;
+console.log(`Username: ${username}`); // Output: jdoe
+console.log(`Email: ${email}`); // Output: jdoe@example.com
 
 // Array destructuring
 const colors = ["red", "green", "blue"];
-// 🚀 **To Do**: Extract the first two colors
-// Example: const [primaryColor, secondaryColor] = colors;
-
-console.log(`Primary Color: `); // Expected: First color
-console.log(`Secondary Color: `); // Expected: Second color
+const [primaryColor, secondaryColor] = colors;
+console.log(`Primary Color: ${primaryColor}`); // Output: red
+console.log(`Secondary Color: ${secondaryColor}`); // Output: green
 
 // Spread operator to merge arrays
 const moreColors = ["yellow", "purple"];
-// 🚀 **To Do**: Merge 'colors' and 'moreColors' into 'allColors' using the spread operator
-
-console.log(`All Colors: `); // Expected: Merged array of colors
+const allColors = [...colors, ...moreColors];
+console.log(`All Colors: ${allColors.join(", ")}`); // Output: red, green, blue, yellow, purple
 
 // ========================================
 // Part 5: Primitives vs. Reference Types
@@ -81,17 +76,17 @@ console.log("\n=== Part 5: Primitives vs. Reference Types ===");
 
 // Primitives
 let string1 = "Hello";
-// 🚀 **To Do**: Assign 'string1' to a new variable and change the value of the new variable
-
-console.log(`string1: `); // Expected: Original value
-console.log(`string2: `); // Expected: Updated value
+let string2 = string1;
+string2 = "World";
+console.log(`string1: ${string1}`); // Output: Hello
+console.log(`string2: ${string2}`); // Output: World
 
 // Reference types
 let array1 = [1, 2, 3];
-// 🚀 **To Do**: Assign 'array1' to a new variable and modify the new variable
-
-console.log(`array1: `); // Expected: Updated array
-console.log(`array2: `); // Expected: Same as array1
+let array2 = array1;
+array2.push(4);
+console.log(`array1: [${array1}]`); // Output: array1: [1, 2, 3, 4]
+console.log(`array2: [${array2}]`); // Output: array2: [1, 2, 3, 4]
 
 // ========================================
 // Part 6: Understanding null, undefined, and NaN
@@ -100,12 +95,11 @@ console.log(`array2: `); // Expected: Same as array1
 console.log("\n=== Part 6: Understanding null, undefined, and NaN ===");
 
 let uninitializedVariable;
-// 🚀 **To Do**: Declare a variable and assign 'null' to it
-// Example: let emptyVariable = null;
+let emptyVariable = null;
 
-console.log(`uninitializedVariable: `); // Expected: undefined
-console.log(`emptyVariable: `); // Expected: null
+console.log(`uninitializedVariable: ${uninitializedVariable}`); // Output: undefined
+console.log(`emptyVariable: ${emptyVariable}`); // Output: null
 
 const result = parseFloat("abc");
-console.log(`result: `); // Expected: NaN
-console.log(`isNaN(result): `); // Expected: true
+console.log(`result: ${result}`); // Output: NaN
+console.log(`isNaN(result): ${isNaN(result)}`); // Output: true
