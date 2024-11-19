@@ -1,7 +1,8 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 
 import Header from "./components/Header";
+import WeatherDisplay from "./components/WeatherDisplay";
 
 import "../global.css";
 
@@ -10,7 +11,7 @@ const App = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar style="auto" />
       <Header />
-      <Text>Welcome to Temp Today!</Text>
+      <WeatherDisplay temperature={25} condition="Sunny" />
     </SafeAreaView>
   );
 };
