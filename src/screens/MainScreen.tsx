@@ -2,7 +2,7 @@ import { StyleSheet, View } from "react-native";
 
 import AdditionalInfo from "../components/AdditionalInfo";
 import WeatherDisplay from "../components/WeatherDisplay";
-import StyledButton from "../components/StyledButton";
+import LocationSelector from "../components/LocationSelector";
 
 const MainScreen: React.FC = () => {
   return (
@@ -12,9 +12,7 @@ const MainScreen: React.FC = () => {
         <AdditionalInfo windSpeed={10} humidity={80} />
       </View>
 
-      <StyledButton onPress={() => console.log("Button Pressed")}>
-        Refresh
-      </StyledButton>
+      <LocationSelector />
     </View>
   );
 };
