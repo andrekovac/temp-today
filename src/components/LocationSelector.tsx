@@ -5,7 +5,11 @@ import { Picker } from "@react-native-picker/picker";
 import StyledButton from "./StyledButton";
 import { cityCoordinates, CityName } from "../data/cities";
 
-const LocationSelector: React.FC = () => {
+type LocationSelectorProps = {
+  setLocation: (city: CityName) => void;
+};
+
+const LocationSelector: React.FC<LocationSelectorProps> = ({ setLocation }) => {
   const [selectedCity, setSelectedCity] = useState<CityName>("Berlin");
 
   const handleCityChange = (city: CityName) => {
@@ -14,7 +18,7 @@ const LocationSelector: React.FC = () => {
   };
 
   const handlePress = () => {
-    Alert.alert("Location Set", `You have selected: ${selectedCity}`);
+    setLocation(selectedCity);
   };
 
   return (

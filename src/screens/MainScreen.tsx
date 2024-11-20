@@ -6,7 +6,7 @@ import AdditionalInfo from "../components/AdditionalInfo";
 import WeatherDisplay from "../components/WeatherDisplay";
 import LocationSelector from "../components/LocationSelector";
 
-import { cityCoordinates } from "../data/cities";
+import { cityCoordinates, CityName } from "../data/cities";
 import { WeatherApiResponse } from "../types/WeatherData";
 import calculateAverage from "../utils/calculateAverage";
 
@@ -14,10 +14,11 @@ const MainScreen: React.FC = () => {
   const [weatherData, setWeatherData] = useState<WeatherApiResponse | null>(
     null
   );
+  const [location, setLocation] = useState<CityName>("Berlin");
 
   useEffect(() => {
     const fetchWeather = async () => {
-      const coords = cityCoordinates["Berlin"];
+      const coords = cityCoordinates[location];
 
       const response = await axios.get<WeatherApiResponse>(
         "https://api.open-meteo.com/v1/forecast",
@@ -38,7 +39,7 @@ const MainScreen: React.FC = () => {
     };
 
     fetchWeather();
-  }, []);
+  }, [location]);
 
   // Compute average temperature from hourly weatherData
   const temperatures = weatherData?.hourly.temperature_2m;
@@ -63,7 +64,7 @@ const MainScreen: React.FC = () => {
         <Text>Could not retrieve weather data.</Text>
       )}
 
-      <LocationSelector />
+      <LocationSelector setLocation={setLocation} />
     </View>
   );
 };
