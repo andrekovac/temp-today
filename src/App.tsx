@@ -1,23 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
 
-import AdditionalInfo from "./components/AdditionalInfo";
-import Header from "./components/Header";
-import StyledButton from "./components/StyledButton";
-import WeatherDisplay from "./components/WeatherDisplay";
-
 import "../global.css";
+
+import MainScreen from "./screens/MainScreen";
+import Header from "./components/Header";
 
 const App = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar style="auto" />
       <Header />
-      <WeatherDisplay temperature={25} condition="Sunny" />
-      <AdditionalInfo windSpeed={10} humidity={80} />
-      <StyledButton onPress={() => console.log("Button Pressed")}>
-        Refresh
-      </StyledButton>
+      <StatusBar style="auto" />
+      <MainScreen />
     </SafeAreaView>
   );
 };
