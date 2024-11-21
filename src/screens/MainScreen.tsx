@@ -1,14 +1,16 @@
 import { StyleSheet, View, Text } from "react-native";
+import { observer } from "mobx-react";
 
 import AdditionalInfo from "../components/AdditionalInfo";
 import WeatherDisplay from "../components/WeatherDisplay";
 import LocationSelector from "../components/LocationSelector";
 
 import useWeatherData from "../hooks/useWeatherData";
+import weatherStore from "../stores/WeatherStore";
 
 const MainScreen: React.FC = () => {
-  const { averageTemperature, humidity, windSpeed, setLocation } =
-    useWeatherData();
+  const { averageTemperature } = useWeatherData();
+  const { humidity, windSpeed, setLocation } = weatherStore;
 
   return (
     <View style={styles.container}>
@@ -38,4 +40,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MainScreen;
+export default observer(MainScreen);
