@@ -24,6 +24,16 @@
     "web": {
       "bundler": "metro",
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "plugins": [
+      [
+        "@sentry/react-native/expo",
+        {
+          "url": "https://sentry.io/",
+          "project": "temp-today",
+          "organization": "intelligent-computing"
+        }
+      ]
+    ]
   }
 }
