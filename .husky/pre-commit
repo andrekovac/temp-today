@@ -1,0 +1,10 @@
+# Step 1: Run linting
+echo "\033[1;33mRunning linting...\033[0m"
+npm run lint
+
+# Step 2: Run tests
+echo "\033[1;34mRunning tests...\033[0m"
+npm test
+
+# If all checks pass
+echo "\033[1;36mPre-commit checks passed! Proceeding with the commit...\033[0m"
