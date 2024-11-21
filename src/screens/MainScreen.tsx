@@ -5,12 +5,10 @@ import AdditionalInfo from "../components/AdditionalInfo";
 import WeatherDisplay from "../components/WeatherDisplay";
 import LocationSelector from "../components/LocationSelector";
 
-import useWeatherData from "../hooks/useWeatherData";
 import weatherStore from "../stores/WeatherStore";
 
 const MainScreen: React.FC = () => {
-  const { averageTemperature } = useWeatherData();
-  const { humidity, windSpeed, setLocation } = weatherStore;
+  const { averageTemperature, humidity, windSpeed, setLocation } = weatherStore;
 
   return (
     <View style={styles.container}>
